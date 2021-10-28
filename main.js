@@ -25,11 +25,97 @@ function getBlock(get_image){
     fabric.Image.fromURL(get_image, function(Img){
     blockObject=Img;
     blockObject.scaleToWidth(blockWidth);
-    block.scaleToHeight(blockHeight);
+    blockObject.scaleToHeight(blockHeight);
     blockObject.set({
         top: playerY,  left: playerX
     });
     canvas.add(blockObject);
       }  );
 
+}
+
+window.addEventListener("keydown", keydown1);
+function keydown1(e) {
+keypressed=e.keyCode;
+if(keypressed=="49") {
+    getBlock("wall.jpg");
+    console.log("1");
+}
+if(keypressed=="50") {
+    getBlock("yellow_wall.png");
+    console.log("2");
+}
+if(keypressed=="51") {
+    getBlock("unique.png");
+    console.log("3");
+}
+if(keypressed=="52") {
+    getBlock("trunk.jpg");
+    console.log("4");
+}
+if(keypressed=="53") {
+    getBlock("roof.jpg");
+    console.log("5");
+}
+if(keypressed=="54") {
+    getBlock("light_green.png");
+    console.log("6");
+}
+if(keypressed=="55") {
+    getBlock("dirt.png");
+    console.log("7");
+}
+
+if(keypressed=="56") {
+    getBlock("dark_green.png");
+    console.log("8");
+}
+if(keypressed=="57") {
+    getBlock("cloud.jpg");
+    console.log("9");
+} 
+if(keypressed=="56"){
+    up();
+    console.log("w");
+}
+if(keypressed=="38"){
+    up();
+    console.log("up");
+}
+if(keypressed=="65"){
+    left();
+    console.log("a");
+}
+if(keypressed=="37"){
+    left();
+    console.log("left");
+}
+if(keypressed=="83"){
+    down();
+    console.log("s");
+}
+if(keypressed=="40"){
+    down();
+    console.log("down");
+}
+if(keypressed=="68"){
+    right();
+    console.log("d");
+}
+if(keypressed=="39"){
+    right();
+    console.log("down");
+}
+if(e.shiftKey==true && keypressed=="187"){
+    blockWidth= blockWidth+10;
+    blockHeight= blockHeight+10;
+    document.getElementById("currentHeight").innerHTML=blockHeight;
+    document.getElementById("currentWidth").innerHTML=blockWidth;
+}
+if(e.shiftKey==true && keypressed=="189"){
+     blockWidth= blockWidth-10;
+     blockHeight= blockHeight-10;
+     document.getElementById("currentHeight").innerHTML=blockHeight;
+     document.getElementById("currentWidth").innerHTML=blockWidth;
+ }
 }
