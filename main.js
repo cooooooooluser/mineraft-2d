@@ -74,7 +74,7 @@ if(keypressed=="57") {
     getBlock("cloud.jpg");
     console.log("9");
 } 
-if(keypressed=="56"){
+if(keypressed=="119"){
     up();
     console.log("w");
 }
@@ -104,7 +104,11 @@ if(keypressed=="68"){
 }
 if(keypressed=="39"){
     right();
-    console.log("down");
+    console.log("right");
+}
+if (keypressed=="08") {
+    getBlock("clear.jpg")
+    console.log("backspace")
 }
 if(e.shiftKey==true && keypressed=="187"){
     blockWidth= blockWidth+10;
@@ -119,3 +123,40 @@ if(e.shiftKey==true && keypressed=="189"){
      document.getElementById("currentWidth").innerHTML=blockWidth;
  }
 }
+
+function up(){
+    if(playerY >=0){
+     playerY = playerY-blockHeight;
+     console.log(blockHeight);
+     canvas.remove(playerObject);
+     summonPlayer();
+    }
+}
+
+function down(){
+    if(playerY <=600){
+     playerY = playerY+blockHeight;
+     console.log(blockHeight);
+     canvas.remove(playerObject);
+     summonPlayer();
+    }
+}
+
+function right(){
+    if(playerX <=1350){
+     playerX = playerX+blockWidth;
+     console.log(blockWidth);
+     canvas.remove(playerObject);
+     summonPlayer();
+    }
+}
+
+function left(){
+    if(playerX >=0){
+     playerX = playerX-blockWidth;
+     console.log(blockWidth);
+     canvas.remove(playerObject);
+     summonPlayer();
+    }
+}
+
